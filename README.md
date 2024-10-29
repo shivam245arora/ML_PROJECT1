@@ -13,7 +13,6 @@ This project aims to develop a predictive model for diabetes using various machi
 - [Modeling Techniques](#modeling-techniques)
 - [Results](#results)
 - [Conclusion](#conclusion)
-- [License](#license)
 - [Acknowledgments](#acknowledgments)
 
 ## Introduction
@@ -85,9 +84,7 @@ After training and evaluating the models, the Random Forest model achieved the h
 
 The project successfully demonstrates the potential of machine learning for predicting diabetes. Future work may involve refining the models, incorporating additional features, or utilizing deep learning techniques for improved accuracy.
 
-## License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
 
 ## Acknowledgments
 
