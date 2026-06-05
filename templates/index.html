@@ -1,12 +1,12 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Welcome</title>
+<title>AI Diabetes Predictor</title>
 
 <style>
-
 *{
     margin:0;
     padding:0;
@@ -19,11 +19,37 @@ body{
     display:flex;
     justify-content:center;
     align-items:center;
-    background:linear-gradient(135deg,#0f172a,#1e293b,#312e81);
     overflow:hidden;
+    position:relative;
+
+    background:linear-gradient(
+        135deg,
+        #0f172a,
+        #1e293b,
+        #312e81
+    );
 }
 
-/* Glowing circles */
+/* Mouse Glow */
+
+.cursor-glow{
+    position:fixed;
+    width:300px;
+    height:300px;
+    border-radius:50%;
+    pointer-events:none;
+
+    background:radial-gradient(
+        circle,
+        rgba(0,229,255,.25),
+        transparent 70%
+    );
+
+    transform:translate(-50%,-50%);
+}
+
+/* Background Glow */
+
 body::before{
     content:'';
     position:absolute;
@@ -51,73 +77,228 @@ body::after{
 .container{
     position:relative;
     z-index:1;
+
     text-align:center;
-    padding:50px;
-    width:700px;
-    border-radius:25px;
+
+    width:850px;
+    max-width:95%;
+
+    padding:60px;
+
+    border-radius:30px;
+
     backdrop-filter:blur(20px);
+
     background:rgba(255,255,255,0.08);
+
     border:1px solid rgba(255,255,255,0.15);
-    box-shadow:0 10px 40px rgba(0,0,0,0.4);
+
+    box-shadow:
+    0 15px 50px rgba(0,0,0,.4);
+
+    animation:float 5s ease-in-out infinite;
+}
+
+@keyframes float{
+    0%,100%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-8px);
+    }
+}
+
+.badge{
+    display:inline-block;
+
+    padding:8px 18px;
+
+    border-radius:50px;
+
+    background:rgba(0,229,255,.1);
+
+    border:1px solid rgba(0,229,255,.25);
+
+    color:#00e5ff;
+
+    font-size:13px;
+
+    margin-bottom:20px;
+}
+
+.icon{
+    font-size:90px;
+    margin-bottom:10px;
 }
 
 h1{
-    font-size:55px;
-    margin-bottom:20px;
-    background:linear-gradient(90deg,#00f5ff,#3b82f6,#8b5cf6);
-    -webkit-background-clip:text;
-    color:transparent;
+    font-size:60px;
+    color:white;
+
+    margin-bottom:15px;
+
+    text-shadow:
+    0 0 10px rgba(0,229,255,.8),
+    0 0 25px rgba(0,229,255,.4);
 }
 
 p{
     color:#d1d5db;
-    font-size:20px;
+    font-size:19px;
+    line-height:1.7;
     margin-bottom:35px;
 }
 
+.features{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    flex-wrap:wrap;
+    margin-bottom:35px;
+}
+
+.feature{
+    background:rgba(255,255,255,.05);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    padding:15px 25px;
+
+    border-radius:15px;
+
+    color:white;
+
+    transition:.3s;
+}
+
+.feature:hover{
+    transform:translateY(-6px);
+}
+
 .btn{
+    position:relative;
+    overflow:hidden;
+
     display:inline-block;
+
     text-decoration:none;
-    padding:15px 35px;
+
+    padding:16px 40px;
+
     font-size:18px;
     font-weight:bold;
-    border-radius:12px;
-    background:linear-gradient(90deg,#06b6d4,#3b82f6,#8b5cf6);
+
+    border-radius:14px;
+
+    background:linear-gradient(
+        90deg,
+        #06b6d4,
+        #3b82f6,
+        #8b5cf6
+    );
+
     color:white;
+
     transition:.3s;
 }
 
 .btn:hover{
     transform:translateY(-3px);
-    box-shadow:0 0 25px #3b82f6;
+
+    box-shadow:
+    0 0 25px #3b82f6;
 }
 
-.icon{
-    font-size:70px;
-    margin-bottom:15px;
+.btn::before{
+    content:'';
+
+    position:absolute;
+
+    top:0;
+    left:-100%;
+
+    width:50%;
+    height:100%;
+
+    background:linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.4),
+        transparent
+    );
 }
 
+.btn:hover::before{
+    left:150%;
+    transition:1s;
+}
+
+.footer{
+    margin-top:25px;
+    color:#94a3b8;
+    font-size:14px;
+}
+
+@media(max-width:768px){
+
+h1{
+    font-size:42px;
+}
+
+.container{
+    padding:35px;
+}
+}
 </style>
+
 </head>
+
 <body>
+
+<div class="cursor-glow"></div>
 
 <div class="container">
 
-    <div class="icon">🤖</div>
+```
+<div class="badge">
+    🤖 Powered by Machine Learning
+</div>
 
-    <h1>Welcome</h1>
+<div class="icon">🩺</div>
 
-    <p>
-        Welcome to the AI-Powered Diabetes Prediction System.
-        Analyze patient health data and get instant predictions
-        using Machine Learning.
-    </p>
+<h1>AI Diabetes Predictor</h1>
 
-    <a href="/predictdata" class="btn">
-        🚀 Start Prediction
-    </a>
+<p>
+    Welcome to the AI-Powered Diabetes Prediction System.
+    Analyze patient health data and receive instant predictions
+    using advanced Machine Learning algorithms.
+</p>
+
+<div class="features">
+    <div class="feature">⚡ Fast</div>
+    <div class="feature">🧠 AI Powered</div>
+    <div class="feature">📊 Accurate</div>
+</div>
+
+<a href="/predictdata" class="btn">
+    🚀 Start Prediction
+</a>
+
+<div class="footer">
+    Flask • Python • Machine Learning
+</div>
+```
 
 </div>
+
+<script>
+const glow = document.querySelector('.cursor-glow');
+
+document.addEventListener('mousemove',(e)=>{
+    glow.style.left = e.clientX + 'px';
+    glow.style.top = e.clientY + 'px';
+});
+</script>
 
 </body>
 </html>
