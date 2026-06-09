@@ -59,7 +59,7 @@ To set up the project environment, follow these steps:
 To run the diabetes prediction model, execute the following command:
 
 ```bash
-python predict.py
+python app.py
 ```
 
 You can also modify the input data in `input_data.csv` to test different scenarios.
